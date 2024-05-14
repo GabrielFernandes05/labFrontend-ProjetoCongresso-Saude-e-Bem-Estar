@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% block body %}
+<div class="container-fluid d-flex justify-content-between border p-3">
+    <h1>Cadastro Palestra</h1>
+    <a href="{{url_for('home')}}"><button class="btn btn-primary">Voltar!</button></a>
+</div>
+<div class="container-fluid">
+
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="" class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nome" id="" placeholder="Escreva o nome de sua palestra..." />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Local</label>
+            <input type="text" class="form-control" name="local" id=""
+                placeholder="Informe o local de sua palestra..." />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Dia</label>
+            <input type="date" class="form-control" name="dia" id="" />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Hora</label>
+            <input type="time" class="form-control" name="hora" id="" />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Descrição</label>
+            <input type="text" class="form-control" name="desc" id=""
+                placeholder="Escreva a descrição de sua palestra..." />
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Cadastrar palestra!
+        </button>
+
+    </form>
+
+
+
+</div>
+{% endblock %}

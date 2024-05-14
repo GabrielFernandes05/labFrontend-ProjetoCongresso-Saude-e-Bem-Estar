@@ -1,0 +1,13 @@
+.card-img-top {
+    max-width: 30rem;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.card {
+    max-width: 25rem;
+}
+
+body span{
+    color: rgb(90, 90, 90);
+}

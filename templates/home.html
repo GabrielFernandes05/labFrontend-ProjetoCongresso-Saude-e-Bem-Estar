@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% block body %}
+<div class="container-fluid border">
+    <nav class="nav justify-content-center mt-2">
+        <p class="h3">Projeto Congresso Saúde e Bem-Estar </p>
+    </nav>
+    <div class="container-fluid d-flex justify-content-around border p-5">
+        <div class="container" style="text-align: center;">
+            <a href="{{url_for('cadastro_palestra')}}"><button class="btn btn-primary">Cadastrar palestra!</button></a>
+        </div>
+        <div class="container" style="text-align: center;">
+            <a href="{{url_for('cadastro_palestrante')}}"><button class="btn btn-primary">Cadastrar
+                    palestrante!</button></a>
+        </div>
+    </div>
+    <div class="container-fluid border p-2" style="text-align: center;">
+        <p class="h3">Nossos Palestrantes</p>
+    </div>
+    <div class="container-fluid d-flex justify-content-around border p-5">
+        {% for palestrante in palestrantes_lista %}
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="{{url_for('static', filename=palestrante.imagem)}}/" alt="Title"
+                style="width: 18rem; height: 18rem;" />
+            <div class="card-body">
+                <h4 class="card-title">{{palestrante.nome}}</h4>
+                <p class="card-text">{{palestrante.area}}</p>
+                <a href="/palestrante/{{palestrante.id}}">
+                    <button type="button" class="btn btn-primary">
+                        Detalhes
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="container-fluid border p-2" style="text-align: center;">
+        <p class="h3">Nossas Palestras</p>
+    </div>
+    <div class="container-fluid d-flex justify-content-around border p-5">
+        {% for palestra in palestras_lista %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title mb-3">{{palestra.nome}}</h5>
+                <h6 class="card-subtitle mb-3 text-muted">{{palestra.local}} - {{palestra.hora}}</h6>
+                <a href="/palestra/{{palestra.id}}" class="card-link">Detalhes</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

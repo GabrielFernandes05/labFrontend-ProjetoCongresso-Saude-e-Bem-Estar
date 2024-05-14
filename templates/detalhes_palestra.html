@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% block body %}
+<div class="container-fluid d-flex justify-content-between border p-3">
+    <h1>Detalhes da palestra</h1>
+    <a href="{{url_for('home')}}"><button class="btn btn-primary">Voltar!</button></a>
+</div>
+<div class="container-fluid">
+    <h1 class="mb-3">{{palestra.nome}}</h1>
+    <h3 class="mb-3"><span>Local: </span>{{palestra.local}}</h3>
+    <h3 class="mb-3"><span>Hora: </span>{{palestra.hora}}</h3>
+    <h3 class="mb-5"><span>Descrição: </span>{{palestra.desc}}</h3>
+    <a href="/del_palestra/{{palestra.id}}"><button class="btn btn-danger">
+            Excluir palestra!
+        </button></a>
+</div>
+{% endblock %}

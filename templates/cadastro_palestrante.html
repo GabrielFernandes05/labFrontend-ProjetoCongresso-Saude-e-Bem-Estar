@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% block body %}
+<div class="container-fluid d-flex justify-content-between border p-3">
+    <h1>Cadastro Palestrante</h1>
+    <a href="{{url_for('home')}}"><button class="btn btn-primary">Voltar!</button></a>
+</div>
+<div class="container-fluid">
+
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="" class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nome" id=""
+                placeholder="Escreva o nome de seu palestrante..." />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Biografia</label>
+            <input type="text" class="form-control" name="bio" id="" placeholder="Escreva sua biografia..." />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Área de especialização</label>
+            <input type="text" class="form-control" name="area" id="" placeholder="Escreva sua área..." />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Envie sua foto</label>
+            <input type="file" class="form-control" name="imagem" id="" placeholder="" required="true" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Cadastrar palestrante!
+        </button>
+
+    </form>
+
+
+
+</div>
+
+{% endblock %}

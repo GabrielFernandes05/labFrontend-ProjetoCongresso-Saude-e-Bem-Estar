@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% block body %}
+<div class="container-fluid d-flex justify-content-between border p-3">
+    <h1>Detalhes do palestrante</h1>
+    <a href="{{url_for('home')}}"><button class="btn btn-primary">Voltar!</button></a>
+</div>
+<div class="container-fluid">
+    <h1 class="mb-3">{{palestrante.nome}}</h1>
+    <img class="mb-3" src="{{url_for('static', filename=palestrante.imagem)}}/" alt=""
+        style="width: 20rem; height: 20rem; border-radius: 50%;">
+    <h3 class="mb-5" style="max-width: 60rem;"><span>Biografia: </span>{{palestrante.bio}}</h3>
+    <h3 class="mb-5"><span>Área de especialização: </span>{{palestrante.area}}</h3>
+    <a href="/del_palestrante/{{palestrante.id}}"><button class="btn btn-danger">
+            Excluir palestrante!
+        </button></a>
+</div>
+{% endblock %}
